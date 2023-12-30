@@ -1,14 +1,11 @@
-pipeline {	
-  agent any 
-  stages {
-    stage('build') {
-      agent {
-        docker { image 'maven:3.8.2-openjdk-8' }
-      }
-      steps {
-	    sh 'mvn --version'
-	    sh 'mvn clean package'
-      }
-    }	 
-  }
-}
+pipeline {
+    agent {
+        docker { image 'node:20.10.0-alpine3.19' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
